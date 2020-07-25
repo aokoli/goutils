@@ -148,6 +148,14 @@ func TestDeleteWhiteSpace(t *testing.T) {
 	if x := DeleteWhiteSpace(str); x != out {
 		t.Errorf("IndexOf(%v) = %v, want %v", str, x, out)
 	}
+
+	// Test 3
+	str = " 测试 测试 测试 "
+	out = "测试测试测试"
+
+	if x := DeleteWhiteSpace(str); x != out {
+		t.Errorf("IndexOf(%v) = %v, want %v", str, x, out)
+	}
 }
 
 func TestIndexOfDifference(t *testing.T) {
