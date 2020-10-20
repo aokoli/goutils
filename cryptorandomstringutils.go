@@ -115,7 +115,7 @@ func CryptoRandomAlphaNumeric(count int) (string, error) {
 		//Get the position between 0 and the length of the string-1  to insert a random number
 		position := getCryptoRandomInt(count)
 		//Insert a random number between [0-9] in the position
-		RandomString = RandomString[:position] + string('0' + getCryptoRandomInt(10)) + RandomString[position + 1:]
+		RandomString = RandomString[:position] + string(rune('0' + getCryptoRandomInt(10))) + RandomString[position + 1:]
 		return RandomString, err
 	}
 	return RandomString, err
