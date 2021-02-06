@@ -17,7 +17,6 @@ limitations under the License.
 package goutils
 
 import (
-	"bytes"
 	"fmt"
 	"strings"
 	"unicode"
@@ -107,23 +106,14 @@ Returns:
     the string without whitespaces
 */
 func DeleteWhiteSpace(str string) string {
-	if str == "" {
-		return str
-	}
-	sz := len(str)
-	var chs bytes.Buffer
-	count := 0
-	for i := 0; i < sz; i++ {
-		ch := rune(str[i])
+	var b strings.Builder
+	b.Grow(len(str))
+	for _, ch := range str {
 		if !unicode.IsSpace(ch) {
-			chs.WriteRune(ch)
-			count++
+			b.WriteRune(ch)
 		}
 	}
-	if count == sz {
-		return str
-	}
-	return chs.String()
+	return b.String()
 }
 
 /*
